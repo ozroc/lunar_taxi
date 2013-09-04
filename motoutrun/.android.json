@@ -1,0 +1,1 @@
+{"layout": "internal", "orientation": "landscape", "package": "moto.out.run", "include_pil": false, "name": "motoutrun", "icon_name": "motoutrun", "version": "1", "permissions": ["VIBRATE"], "include_sqlite": false, "numeric_version": "1"}
