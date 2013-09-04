@@ -18,5 +18,7 @@ def main():
         android.accelerometer_enable(True)
     pygame.init()
 
+    screen = pygame.display.set_mode((800, 480))
+
 if __name__ == '__main__':
     main()
