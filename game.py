@@ -80,8 +80,6 @@ class Controls(object):
         self.__instant_presses=0
         self.__pressed=False
         try:
-            self.__android.init()
-            self.__android.map_key(android.KEYCODE_BACK, pygame.K_ESCAPE)
             self.__android.accelerometer_enable(True)
             self.__get_angle = self.__get_angle_android
         except:
@@ -103,9 +101,9 @@ class Controls(object):
         accs = self.__android.accelerometer_reading()
         x = accs[1]
         y = accs[0]
-        offset = math.pi/2 if x < 0 else 0
+        offset = math.pi if x < 0 else 0
         if x != 0:
-            return math.atan(y/x)+offset
+            return offset-math.atan(y/x)
         else:
             return 0
     
@@ -113,8 +111,9 @@ class Controls(object):
         accs = pygame.mouse.get_pos()
         x = accs[0]-400.
         y = accs[1]-240.
+        offset = math.pi if x < 0 else 0
         if x != 0:
-            return abs(x)/x*math.atan(y/x)
+            return offset-math.atan(y/x)
         else:
             return 0
 

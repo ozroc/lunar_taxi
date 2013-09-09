@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import pygame
-
+import math
 try:
     import android
 except ImportError:
@@ -26,13 +26,15 @@ def main():
 
     screen = pygame.display.set_mode((800, 480))
     
-    space = game.Space(load_image('background.jpg'))
+    c = game.Controls(screen)
+    space = game.Space(load_image('background.png'))
     camera = game.Camera(space)
     direction = game.DIR_STOP
 
     in_game = True
     while in_game:
-
+        
+        print c.angle, c.angle%(2*math.pi), c.press
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 in_game = False
