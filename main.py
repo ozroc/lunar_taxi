@@ -6,11 +6,13 @@ try:
     import android
 except ImportError:
     android = None
+import game
 
-try:
-    import pygame.mixer as mixer
-except ImportError:
-    import android.mixer as mixer
+#try:
+#    import android.mixer as mixer
+#except ImportError:
+#    import pygame.mixer as mixer
+
 
 def main():
     if android:
@@ -19,6 +21,9 @@ def main():
     pygame.init()
 
     screen = pygame.display.set_mode((800, 480))
+    c=game.Controls(android)
+    while True:
+        print c.angle/3.14159, c.press
 
 if __name__ == '__main__':
     main()
